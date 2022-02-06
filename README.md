@@ -28,7 +28,7 @@ $ docker-compose up
 
 3. **Check if the container is ready**
 <br /> When the container is ready, it will show the project’s documentation page in your browser at the address http://127.0.0.1:8001/docs
-
+<br /> 
 
 4. **Move the upgrade_and_downgrade_functions.py file from alembic/versions folder to the alembic folder**
 <br /> The path for the **alembic** folder is financial-dashboard/backend/app/app/alembic.
@@ -52,7 +52,7 @@ CONTAINER ID   IMAGE
 e64439804308   postgres:12.4             
 ```
 Copy 4158461bc778
-
+<br /> 
 
 6. **Enter the container and generate migration scripts**
 <br /> From the “second” command prompt (or some other command prompt), go to the directory containing the Docker compose file:
@@ -82,9 +82,12 @@ root@860d70de3701:/app# alembic revision -m "revision_tables"
 
 7. **Run the migrations**
 <br /> In order to generate the database tables needed for this application, the upgrade and downgrade functions (see step 6) must have information about the creation of these tables. The content for the upgrade and downgrade functions file is provided in a file which (in step 4) has been moved to: financial-dashboard/backend/app/app/alembic
-<br /> Using your IDE (Integrated Development Editor), copy the contents of the upgrade and downgrade functions file and paste the contents in the **xxx_revision_tables** file by replacing the empty functions in the **xxx_revision_tables** file.
-<br /> In the command prompt, where we have entered the container:
+<br /> <br /> Using your IDE (Integrated Development Editor), copy the contents of the upgrade and downgrade functions file and paste the contents in the **xxx_revision_tables** file by replacing the empty functions in the **xxx_revision_tables** file.
+<br />  <br /> In the command prompt where we have entered the container, write the command:
 ```
 root@4158461bc778:/app# alembic upgrade head
 ```
+<br /> The database tables required for this application should now be ready.
 
+8. **Test the application manually**
+To check if the application is working as expected:
