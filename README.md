@@ -9,14 +9,14 @@ The backend is a RESTful API application built in FastAPI and a PostgreSQL datab
 ## Usage
 
 ### With docker-compose
-1. Clone this project:
-→ in a command prompt:
+1. **Clone this project**
+<br /> In a command prompt:
 ```bash
 git clone ​​https://github.com/adikele/financial-dashboard.git
 ```
 
-2. Start the container: 
-→ go to the directory containing the docker-compose file and run the container: 
+2. **Start the container**
+<br /> In the same command prompt, run the container from the directory containing the docker-compose file: 
 ```bash
 $ ls
 financial-dashboard
@@ -26,70 +26,65 @@ README.md		backend			docker-compose.yml
 $ docker-compose up
 ```
 
-3. Check if the container is ready:
-→ by visiting http://127.0.0.1:8001/docs on the browser
-When ready, the Web page will show the project’s documentation page.
-A snapshot of the "documentation" page is provided in the files: documentation.jpg
+3. **Check if the container is ready**
+<br /> When the container is ready, it will show the project’s documentation page in your browser at the address http://127.0.0.1:8001/docs
 
-4. Move the upgrade_and_downgrade_functions.py file from alembic/versions folder to the alembic folder:
-The path for alembic folder is financial-dashboard/backend/app/app/alembic
-From another command prompt (let’s call this “second” command prompt):
-→ go to the alembic folder and provide the mv command to move the file
+
+4. **Move the upgrade_and_downgrade_functions.py file from alembic/versions folder to the alembic folder**
+<br /> The path for the **alembic** folder is financial-dashboard/backend/app/app/alembic.
+<br /> From another command prompt (since the container is running in the “first” command prompt):
 ```
 $ cd alembic/
 $ mv versions/upgrade_and_downgrade_functions.py .
 $ ls
 README					env.py					script.py.mako				upgrade_and_downgrade_functions.py	versions
-
 ```
 
+5. **Get the containerID of the server**
+<br /> From the “second” command prompt (or some other command prompt), get the containerID of the container running the server:
 ```
-docker-compose exec app pytest
+docker ps 
+```
+The containerIDs of the server and the postgreSQL containers will be displayed:
+```
+CONTAINER ID   IMAGE                     
+4158461bc778   financial-dashboard_app   
+e64439804308   postgres:12.4             
+```
+Copy 4158461bc778
+
+
+6. **Enter the container and generate migration scripts**
+<br /> From the “second” command prompt (or some other command prompt), go to the directory containing the Docker compose file:
+ ```
+$ ls
+README.md		backend			db_data			docker-compose.yml
+```
+<br /> Enter the container with the command: docker exec -it [containerID] bash
+```
+docker exec -it 4158461bc778  bash
+```
+<br /> The output would read something like this:
+```
+root@860d70de3701:/app# 
+```
+<br /> Note: The **app** directory has the alembic.ini file
+```
+root@860d70de3701:/app# ls
+Dockerfile  __pycache__  alembic.ini  app  main.py  requirements
+```
+<br /> Generate the first migration script:
+```
+root@860d70de3701:/app# alembic revision -m "revision_tables"
+```
+<br /> A **xxx_revision_tables** file will be generated in **versions** folder. This file will have empty upgrade and downgrade functions. 
+
+
+7. **Run the migrations**
+<br /> In order to generate the database tables needed for this application, the upgrade and downgrade functions (see step 6) must have information about the creation of these tables. The content for the upgrade and downgrade functions file is provided in a file which (in step 4) has been moved to: financial-dashboard/backend/app/app/alembic
+<br /> Using your IDE (Integrated Development Editor), copy the contents of the upgrade and downgrade functions file and paste the contents in the **xxx_revision_tables** file by replacing the empty functions in the **xxx_revision_tables** file.
+<br /> In the command prompt, where we have entered the container:
+```
+root@4158461bc778:/app# alembic upgrade head
 ```
 
-```
-docker-compose exec app pytest
-```
-
-```
-docker-compose exec app pytest
-```
-### Tests
-**To run the tests:**
-
-```
-docker-compose exec app pytest
-```
-
-**To re-run the tests**, firstly, we recreate the database because there are unit tests which create resources, so if it already exists the test will fail:
-
-Remove the data files before recreate the container
-```
-rm -fr db_data/*
-```
-Recreate the db service:
-
-```docker
-docker-compose stop db
-docker-compose rm db
-docker-compose up -d db
-```
-
-Finally, re-run the migration and the tests:
-```
-docker-compose exec app alembic upgrade head
-docker-compose exec app pytest
-```
-
-<!--
-### With python virtual environment
-If you want to run the application from your terminal, you may create a python virtual environment, install the dependencies and run it using uvicorn:
-
-```bash
-python3 -m venv .venv
-source ./venv/bin/activate
-(.venv) pip install -r requirements/dev.txt
-(.venv) cd backend
-(.venv) uvicorn main:app --reload
-```
--->
