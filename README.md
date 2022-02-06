@@ -9,19 +9,51 @@ The backend is a RESTful API application built in FastAPI and a PostgreSQL datab
 ## Usage
 
 ### With docker-compose
-To run the application you need to have `Docker` and `docker-compose` installed. So, just execute from the root directory:
-
+1. Clone this project:
+→ in a command prompt:
 ```bash
-docker-compose up
+git clone ​​https://github.com/adikele/financial-dashboard.git
 ```
 
-So, run the first migration:
-
+2. Start the container: 
+→ go to the directory containing the docker-compose file and run the container: 
 ```bash
-docker-compose exec app alembic upgrade head
+$ ls
+financial-dashboard
+$ cd financial-dashboard/
+$ ls 
+README.md		backend			docker-compose.yml
+$ docker-compose up
 ```
 
+3. Check if the container is ready:
+→ by visiting http://127.0.0.1:8001/docs on the browser
+When ready, the Web page will show the project’s documentation page.
+A snapshot of the "documentation" page is provided in the files: documentation.jpg
 
+4. Move the upgrade_and_downgrade_functions.py file from alembic/versions folder to the alembic folder:
+The path for alembic folder is financial-dashboard/backend/app/app/alembic
+From another command prompt (let’s call this “second” command prompt):
+→ go to the alembic folder and provide the mv command to move the file
+```
+$ cd alembic/
+$ mv versions/upgrade_and_downgrade_functions.py .
+$ ls
+README					env.py					script.py.mako				upgrade_and_downgrade_functions.py	versions
+
+```
+
+```
+docker-compose exec app pytest
+```
+
+```
+docker-compose exec app pytest
+```
+
+```
+docker-compose exec app pytest
+```
 ### Tests
 **To run the tests:**
 
