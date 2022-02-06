@@ -79,7 +79,6 @@ root@860d70de3701:/app# alembic revision -m "revision_tables"
 ```
 A **xxx_revision_tables** file will be generated in **versions** folder. This file will have empty upgrade and downgrade functions. 
 <br /> 
-
 7. **Run the migrations**
 <br /> In order to generate the database tables needed for this application, the upgrade and downgrade functions (see step 6) must have information about the creation of these tables. The content for the upgrade and downgrade functions file is provided in a file which (in step 4) has been moved to: financial-dashboard/backend/app/app/alembic
 <br /> <br /> Using your IDE (Integrated Development Editor), copy the contents of the upgrade and downgrade functions file and paste the contents in the **xxx_revision_tables** file by replacing the empty functions in the **xxx_revision_tables** file.
@@ -87,7 +86,7 @@ A **xxx_revision_tables** file will be generated in **versions** folder. This fi
 ```
 root@4158461bc778:/app# alembic upgrade head
 ```
-<br /> The database tables required for this application should now be ready.
-
+The database tables required for this application should now be ready.
+<br /> 
 8. **Test the application manually**
-To check if the application is working as expected:
+<br /> To check if the application is working as expected:
