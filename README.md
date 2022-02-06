@@ -60,25 +60,25 @@ Copy 4158461bc778
 $ ls
 README.md		backend			db_data			docker-compose.yml
 ```
-<br /> Enter the container with the command: docker exec -it [containerID] bash
+Enter the container with the command: docker exec -it [containerID] bash
 ```
 docker exec -it 4158461bc778  bash
 ```
-<br /> The output would read something like this:
+The output would read something like this:
 ```
 root@860d70de3701:/app# 
 ```
-<br /> Note: The **app** directory has the alembic.ini file
+Note: The **app** directory has the alembic.ini file
 ```
 root@860d70de3701:/app# ls
 Dockerfile  __pycache__  alembic.ini  app  main.py  requirements
 ```
-<br /> Generate the first migration script:
+Generate the first migration script:
 ```
 root@860d70de3701:/app# alembic revision -m "revision_tables"
 ```
-<br /> A **xxx_revision_tables** file will be generated in **versions** folder. This file will have empty upgrade and downgrade functions. 
-
+A **xxx_revision_tables** file will be generated in **versions** folder. This file will have empty upgrade and downgrade functions. 
+<br /> 
 
 7. **Run the migrations**
 <br /> In order to generate the database tables needed for this application, the upgrade and downgrade functions (see step 6) must have information about the creation of these tables. The content for the upgrade and downgrade functions file is provided in a file which (in step 4) has been moved to: financial-dashboard/backend/app/app/alembic
