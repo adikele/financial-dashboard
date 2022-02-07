@@ -10,7 +10,7 @@
 <br /> The application is a portal/dashboard for storing and displaying details of a user's financial assets. 
 <br /> It is intended for use by members of a family or a group.
 
-<br /> Stage 1 completed: 7.2.2022
+<br /> Stage One completed: 7.2.2022
 <br /> Working features: 
 <br /> (i) Creation of a user account
 <br /> (ii) Addition of an asset by a user
@@ -121,11 +121,11 @@ The database tables required for this application should now be ready.
 
 ## TO DO:
 <br />
-Stage 2:
+Stage Two:
 1. Create tests
 2. Host on the cloud
 <br /> <br />
-Stage 3:
+Stage Three:
 3. Store results to the cloud
 4. Build a frontend 
 5. Add functionalities
