@@ -120,10 +120,12 @@ The database tables required for this application should now be ready.
 <br /> The response should be the asset detail as entered in step 2.
 
 ## TO DO:
-<br />Stage 2:
+<br />
+Stage 2:
 1. Create tests
 2. Host on the cloud
-<br /> <br />Stage 3:
+<br /> <br />
+Stage 3:
 3. Store results to the cloud
 4. Build a frontend 
 5. Add functionalities
