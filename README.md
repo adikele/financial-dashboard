@@ -1,4 +1,4 @@
-# Background and Acknowledgements:
+# A financial dashboard application
 <br /> This application use the base created by:
 <br /> (i) https://github.com/thalesbruno/fastapi-boilerplate
 <br /> (ii) https://fastapi.tiangolo.com/tutorial/sql-databases/
