@@ -2,16 +2,16 @@
 <br /> The application is a portal/dashboard for storing and displaying details of a user's financial assets. 
 <br /> It is intended for use by members of a family or a group.
 
-<br /> This application use the base created by:
+<br /> This application is built on the code base created at the Websites provided below:
 <br /> (i) https://github.com/thalesbruno/fastapi-boilerplate
 <br /> (ii) https://fastapi.tiangolo.com/tutorial/sql-databases/
 
 ## Structure
-<br /> The backend is a RESTful API application built in FastAPI and a PostgreSQL database.
+The backend is a RESTful API application built in FastAPI and a PostgreSQL database.
 <br /> The application is run inside a Docker container.
 
 ## Usage
-<br /> Stage One completed: 7.2.2022
+Stage One completed: 7.2.2022
 <br /> Working features: 
 <br /> (i) Creation of a user account
 <br /> (ii) Addition of an asset by a user
@@ -19,8 +19,8 @@
 
 
 ### How to run this project:
-<br /> You would need to install Docker and some IDE (eg Visual Studio Code) to run this application.
-<br /> Basic knowledge of using the command line and your IDE would be required. 
+You would need to install Docker and some IDE (eg Visual Studio Code) to run this application.
+<br /> Basic knowledge of how to use the command line and how to open and navigate a project in your IDE would be required. 
 <br /> 
 1. **Clone this project**
 <br /> In a command prompt:
