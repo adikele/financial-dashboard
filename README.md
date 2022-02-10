@@ -15,7 +15,7 @@ Stage One completed: 7.2.2022
 <br /> Working features: 
 <br /> (i) Creation of a user account
 <br /> (ii) Addition of an asset by a user
-<br /> (iii) Searching assets by a specific value belonging to all users 
+<br /> (iii) Searching assets of a specific "original value" belonging to all users 
 
 
 ### How to run this project:
@@ -94,8 +94,8 @@ Generate the first migration script:
 root@860d70de3701:/app# alembic revision -m "revision_tables"
 ```
 A **xxx_revision_tables** file will be generated in the **versions** folder. 
-Path to the folder: financial-dashboard/backend/app/app/alembic/versions
-This file will have empty upgrade and downgrade functions. 
+<br /> Path to the folder: financial-dashboard/backend/app/app/alembic/versions
+<br /> This file will have empty upgrade and downgrade functions. 
 <br /> 
 <br /> 
 7. **Run the migrations**
@@ -111,7 +111,7 @@ The database tables required for this application should now be ready.
 8. **Test the application manually**
 <br /> To check if the application is working as expected:
 <br /> Step 1: 
-<br /> Go to the address http://127.0.0.1:8001/docs in your browser
+<br /> Go to the address http://127.0.0.1:8001/docs in your browser.
 <br /> Enter user details through the POST /users/ tab.
 <br /> Note the id generated in the ”response” table.
 <br /> Step 2: 
@@ -125,11 +125,11 @@ The database tables required for this application should now be ready.
 
 ## TO DO:
 <br />
-Stage Two:
+Stage Two: <br />
 1. Create tests
 2. Host on the cloud
 <br /> <br />
-Stage Three:
+Stage Three: <br />
 3. Store results to the cloud
 4. Build a frontend 
 5. Add functionalities
